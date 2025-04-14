@@ -1,7 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINIFY</title>
+    <style>
+        /* 轮播图样式 */
+        @import url(https://fonts.googleapis.com/css?family=Anaheim);
+
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+        }
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            min-height: 100%;
+        }
+        body {
+            background-color: #131112; /* 背景颜色与BINIFY页面一致 */
+            color: #F5F5F5;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            text-align: center;
+            padding-top: 40px; /* 增加顶部间距 */
+        }
+        .container {
+            margin: 40px auto; /* 增加与BINIFY的间距 */
+            width: 150px; /* 宽度调整为150px */
+            height: 200px; /* 高度调整为200px，保持3:4比例 */
+            position: relative;
+            perspective: 1000px;
+        }
+        #carousel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotation 20s infinite linear;
+        }
+        #carousel.paused {
+            animation-play-state: paused; /* 暂停动画 */
+        }
+        #carousel figure {
+            display: block;
+            position: absolute;
+            width: 100%; /* 图片宽度占满容器 */
+            height: 100%; /* 图片高度占满容器 */
+            background: transparent; /* 背景透明 */
+            overflow: hidden;
+            border: none; /* 移除边框 */
+            border-radius: 20px; /* 添加圆角效果 */
+        }
+        #carousel figure:nth-child(1) {
+            transform: rotateY(0deg) translateZ(150px); /* 调整Z轴距离 */
+        }
+        #carousel figure:nth-child(2) {
+            transform: rotateY(90deg) translateZ(150px); /* 调整Z轴距离 */
+        }
+        #carousel figure:nth-child(3) {
+            transform: rotateY(180deg) translateZ(150px); /* 调整Z轴距离 */
+        }
+        #carousel figure:nth-child(4) {
+            transform: rotateY(270deg) translateZ(150px); /* 调整Z轴距离 */
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片比例 */
+            cursor: pointer;
+            border-radius: 20px; /* 图片圆角效果 */
+        }
+        @keyframes rotation {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        /* BINIFY页面样式 */
+        h1 {
+            font-weight: bold;
+            font-size: 36px;
+            margin-top: 40px; /* 增加与轮播图的间距 */
+            margin-bottom: 30px;
+        }
+        .button {
+            width: 320px;
+            height: 55px;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+        .yellow {
+            background-color: #FFE464;
+            color: #131112;
+        }
+        .gray {
+            background-color: #838384;
+            color: #F5F5F5;
+        }
+        .underline {
+            font-size: 18px;
+            font-weight: 400;
+            color: #FFE462;
+            text-decoration: underline;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <!-- 轮播图 -->
+    <div class="container">
+        <div id="carousel">
+            <figure><img src="https://i.pinimg.com/736x/07/65/1d/07651d7cbddb6bda0388079c49735b10.jpg" alt="Image 1"></figure>
+            <figure><img src="https://i.pinimg.com/736x/82/b4/86/82b4861b0a2676ec5b52312a47b2b36f.jpg" alt="Image 2"></figure>
+            <figure><img src="https://i.pinimg.com/736x/d9/0b/67/d90b6763386f5a97082ec9827279c990.jpg" alt="Image 3"></figure>
+            <figure><img src="https://i.pinimg.com/736x/5d/94/42/5d9442b4d895c306403b87f1d4effc77.jpg" alt="Image 4"></figure>
+        </div>
+    </div>
+
+    <!-- BINIFY页面内容 -->
+    <h1>BINIFY</h1>
+    <a href="#" class="button yellow">Scan the label</a>
+    <a href="https://sites.google.com/view/test123245/quit-to-sort" class="button gray">Quit to sort</a>
+    <a href="#" class="underline">About Us</a>
+
+    <script>
+        // 点击轮播图暂停/继续
+        const carousel = document.getElementById('carousel');
+        carousel.addEventListener('click', () => {
+            if (carousel.classList.contains('paused')) {
+                carousel.classList.remove('paused'); // 继续轮播
+            } else {
+                carousel.classList.add('paused'); // 暂停轮播
+            }
+        });
+    </script>
 </body>
 </html>
