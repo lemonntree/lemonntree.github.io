@@ -1,109 +1,179 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
-    
-    .container {
-        font-family: 'Inter', Arial, sans-serif;
-        height: 100vh;
-        padding: 20px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BINIFY</title>
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap'); /* Added 700 weight */
 
-    .title-wrapper {
-        flex-shrink: 0;
-        margin-bottom: 5vh;
-    }
-
-    .card-grid {
-        flex-grow: 1;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 15px;
-    }
-
-    .card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        overflow: hidden;
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            padding: 15px;
-            height: auto;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+        }
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+        html,
+        body {
+            min-height: 100%;
+        }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #f8f9fa; /* Light background for the page */
+            padding-top: 80px; /* Add padding to push content below the fixed top bar (60px bar + 20px space) */
             min-height: 100vh;
+            display: flex; /* Ensure container takes up space */
+            flex-direction: column; /* Stack top bar and container */
         }
-        
+
+        /* --- Top Bar Styles (Copied from index.html) --- */
+        .top-bar {
+            background-color: white;
+            width: 100%;
+            height: 60px; /* Height of the bar */
+            position: fixed; /* Fix it to the top */
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 20px; /* Add some padding */
+            z-index: 1000; /* Ensure it's above other content */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional shadow */
+        }
+        .top-bar a {
+            color: #131112; /* Black text color */
+            font-weight: 700; /* Bold */
+            font-size: 24px; /* Adjust size as needed */
+            text-decoration: none; /* Remove underline */
+            font-family: 'Inter', sans-serif; /* Ensure font consistency */
+        }
+        /* --- End Top Bar Styles --- */
+
+        /* Original aboutUs Styles (Adjusted) */
+        .container {
+            /* font-family: 'Inter', Arial, sans-serif; Removed, set on body */
+            /* height: 100vh; Removed, body handles min-height */
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            width: 100%; /* Ensure container takes full width */
+            max-width: 1200px; /* Optional: Limit max width on large screens */
+            margin: 0 auto; /* Center container */
+            flex-grow: 1; /* Allow container to grow */
+        }
+
+        .title-wrapper {
+            flex-shrink: 0;
+            margin-bottom: 5vh; /* Keep vertical spacing */
+        }
+
         .card-grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            gap: 12px;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
         }
-        
-        .title-wrapper h1 {
-            font-size: 1.8rem;
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
         }
-    }
 
-    /* 公共样式 */
-    .title-gradient {
-        height: 3px;
-        background: linear-gradient(90deg, #FFE464 0%, #838384 100%);
-        margin-top: 10px;
-    }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                /* height: auto; */ /* Not needed */
+                /* min-height: 100vh; Removed, body handles this */
+            }
 
-    .card-bottom-line {
-        height: 4px;
-        background: #FFE464;
-        margin: 15px -20px -20px;
-        border-radius: 0 0 12px 12px;
-    }
-</style>
+            .card-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 12px;
+            }
 
-<div class="container">
-    <div class="title-wrapper">
-        <h1 style="color: #131112; margin: 0; font-weight: 500;">About Us</h1>
-        <div class="title-gradient"></div>
+            .title-wrapper h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* 公共样式 */
+        .title-gradient {
+            height: 3px;
+            background: linear-gradient(90deg, #FFE464 0%, #838384 100%);
+            margin-top: 10px;
+        }
+
+        .card-bottom-line {
+            height: 4px;
+            /* background: #FFE464; Set individually */
+            margin: 15px -20px -20px; /* Adjust margin to align with padding */
+            border-radius: 0 0 12px 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- New Top Bar -->
+    <div class="top-bar">
+        <a href="index.html">BINIFY</a>
     </div>
 
-    <div class="card-grid">
-        <div class="card">
-            <div>
-                <h3 style="color: #131112; margin: 0 0 12px 0;">Feature</h3>
-                <p style="color: #838384; margin: 0; font-size: 0.9em;">Discover our core functionalities...</p>
-            </div>
-            <div class="card-bottom-line" style="background: #FFE464;"></div>
+    <!-- Original Content Wrapper -->
+    <div class="container">
+        <div class="title-wrapper">
+            <h1 style="color: #131112; margin: 0; font-weight: 500;">About Us</h1>
+            <div class="title-gradient"></div>
         </div>
 
-        <div class="card">
-            <div>
-                <h3 style="color: #131112; margin: 0 0 12px 0;">Collaboration</h3>
-                <p style="color: #838384; margin: 0; font-size: 0.9em;">Teamwork made simple and efficient...</p>
+        <div class="card-grid">
+            <div class="card">
+                <div>
+                    <h3 style="color: #131112; margin: 0 0 12px 0;">Feature</h3>
+                    <p style="color: #838384; margin: 0; font-size: 0.9em;">Discover our core functionalities...</p>
+                </div>
+                <div class="card-bottom-line" style="background: #FFE464;"></div>
             </div>
-            <div class="card-bottom-line" style="background: #838384;"></div>
-        </div>
 
-        <div class="card">
-            <div>
-                <h3 style="color: #131112; margin: 0 0 12px 0;">Support</h3>
-                <p style="color: #838384; margin: 0; font-size: 0.9em;">24/7 assistance whenever you need...</p>
+            <div class="card">
+                <div>
+                    <h3 style="color: #131112; margin: 0 0 12px 0;">Collaboration</h3>
+                    <p style="color: #838384; margin: 0; font-size: 0.9em;">Teamwork made simple and efficient...</p>
+                </div>
+                <div class="card-bottom-line" style="background: #838384;"></div>
             </div>
-            <div class="card-bottom-line" style="background: #131112;"></div>
-        </div>
 
-        <div class="card">
-            <div>
-                <h3 style="color: #131112; margin: 0 0 12px 0;">Resources</h3>
-                <p style="color: #838384; margin: 0; font-size: 0.9em;">Essential tools and documentation...</p>
+            <div class="card">
+                <div>
+                    <h3 style="color: #131112; margin: 0 0 12px 0;">Support</h3>
+                    <p style="color: #838384; margin: 0; font-size: 0.9em;">24/7 assistance whenever you need...</p>
+                </div>
+                <div class="card-bottom-line" style="background: #131112;"></div>
             </div>
-            <div class="card-bottom-line" style="background: linear-gradient(90deg, #FFE464 0%, #838384 100%);"></div>
+
+            <div class="card">
+                <div>
+                    <h3 style="color: #131112; margin: 0 0 12px 0;">Resources</h3>
+                    <p style="color: #838384; margin: 0; font-size: 0.9em;">Essential tools and documentation...</p>
+                </div>
+                <div class="card-bottom-line" style="background: linear-gradient(90deg, #FFE464 0%, #838384 100%);"></div>
+            </div>
         </div>
     </div>
-</div>
+
+</body>
+</html>
