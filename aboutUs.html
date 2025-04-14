@@ -1,0 +1,109 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+    
+    .container {
+        font-family: 'Inter', Arial, sans-serif;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title-wrapper {
+        flex-shrink: 0;
+        margin-bottom: 5vh;
+    }
+
+    .card-grid {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+            height: auto;
+            min-height: 100vh;
+        }
+        
+        .card-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 12px;
+        }
+        
+        .title-wrapper h1 {
+            font-size: 1.8rem;
+        }
+    }
+
+    /* 公共样式 */
+    .title-gradient {
+        height: 3px;
+        background: linear-gradient(90deg, #FFE464 0%, #838384 100%);
+        margin-top: 10px;
+    }
+
+    .card-bottom-line {
+        height: 4px;
+        background: #FFE464;
+        margin: 15px -20px -20px;
+        border-radius: 0 0 12px 12px;
+    }
+</style>
+
+<div class="container">
+    <div class="title-wrapper">
+        <h1 style="color: #131112; margin: 0; font-weight: 500;">About Us</h1>
+        <div class="title-gradient"></div>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div>
+                <h3 style="color: #131112; margin: 0 0 12px 0;">Feature</h3>
+                <p style="color: #838384; margin: 0; font-size: 0.9em;">Discover our core functionalities...</p>
+            </div>
+            <div class="card-bottom-line" style="background: #FFE464;"></div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3 style="color: #131112; margin: 0 0 12px 0;">Collaboration</h3>
+                <p style="color: #838384; margin: 0; font-size: 0.9em;">Teamwork made simple and efficient...</p>
+            </div>
+            <div class="card-bottom-line" style="background: #838384;"></div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3 style="color: #131112; margin: 0 0 12px 0;">Support</h3>
+                <p style="color: #838384; margin: 0; font-size: 0.9em;">24/7 assistance whenever you need...</p>
+            </div>
+            <div class="card-bottom-line" style="background: #131112;"></div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3 style="color: #131112; margin: 0 0 12px 0;">Resources</h3>
+                <p style="color: #838384; margin: 0; font-size: 0.9em;">Essential tools and documentation...</p>
+            </div>
+            <div class="card-bottom-line" style="background: linear-gradient(90deg, #FFE464 0%, #838384 100%);"></div>
+        </div>
+    </div>
+</div>
